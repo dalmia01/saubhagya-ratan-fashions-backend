@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function NewProduct() {
   const [form, setForm] = useState({
@@ -13,7 +12,6 @@ export default function NewProduct() {
     inStock: false,
   });
 
-  const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -23,7 +21,6 @@ export default function NewProduct() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    router.push("/dashboard/products");
   }
 
   return (
@@ -35,7 +32,7 @@ export default function NewProduct() {
       <textarea className="border p-2 rounded" placeholder="Description" onChange={e => setForm({ ...form, description: e.target.value })}/>
       <input className="border p-2 rounded" placeholder="Main Image URL" onChange={e => setForm({ ...form, mainImage: e.target.value })}/>
       <input className="border p-2 rounded" placeholder="Other Images (comma separated)" onChange={e => setForm({ ...form, otherImages: e.target.value })}/>
-      <label className="flex items-center gap-2">
+      <label className="flex items-center gap-2">{""}
         <input type="checkbox" onChange={e => setForm({ ...form, inStock: e.target.checked })}/>
         In Stock
       </label>
