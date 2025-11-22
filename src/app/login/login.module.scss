@@ -1,0 +1,47 @@
+$primary-gradient: linear-gradient(135deg, #6d5dfc, #ff6ec7);
+
+.login-container {
+  @apply flex justify-center items-center min-h-screen bg-gray-100;
+
+  .login-card {
+    @apply bg-white rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden w-full max-w-4xl;
+
+    .login-image {
+      @apply hidden md:block md:w-1/2 bg-gradient-to-br from-purple-500 to-pink-500 relative;
+      &:before {
+        content: '';
+        @apply absolute inset-0 opacity-30;
+        background: url('/login-bg.png') no-repeat center/cover;
+      }
+    }
+
+    .login-form {
+      @apply w-full md:w-1/2 p-10 flex flex-col justify-center;
+      h2 {
+        @apply text-3xl font-bold text-gray-800 mb-6;
+      }
+      p {
+        @apply text-gray-500 mb-6;
+      }
+
+      input {
+        @apply border border-gray-300 p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 transition;
+      }
+
+      button {
+        @apply bg-gradient-to-r from-purple-600 to-pink-500 text-white p-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition;
+      }
+
+      .error {
+        @apply text-red-500 text-sm mb-4;
+      }
+
+      .remember-me {
+        @apply flex items-center gap-2 mb-6;
+        input {
+          @apply w-4 h-4;
+        }
+      }
+    }
+  }
+}
